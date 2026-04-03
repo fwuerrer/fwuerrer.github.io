@@ -36,7 +36,6 @@
             line-height: 1.5;
         }
 
-        /* STICKY CONTROLS (Handy & Desktop oben) */
         .controls {
             position: sticky;
             top: 0;
@@ -64,15 +63,13 @@
             gap: 8px;
         }
 
-        /* WRAPPER: Mobile = Stacked, Desktop = 2 Spalten */
         .resume-card {
             max-width: 1100px;
             margin: 0 auto;
             background: var(--card-bg);
-            display: block; /* Stacked für Mobile */
+            display: block;
         }
 
-        /* SIDEBAR */
         .sidebar {
             background: var(--sidebar-bg);
             color: white;
@@ -124,7 +121,6 @@
             display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 30px;
         }
 
-        /* MAIN CONTENT */
         .main { padding: 40px 20px; }
         .section { margin-bottom: 40px; }
         .section-h2 { font-size: 1.25rem; margin-bottom: 20px; color: var(--accent); display: flex; align-items: center; gap: 12px; }
@@ -148,7 +144,6 @@
         .cert-card { background: var(--bg); padding: 15px; border-radius: 12px; margin-bottom: 10px; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; }
         .btn-link { color: var(--accent); text-decoration: none; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; }
 
-        /* DESKTOP STYLES (> 850px) */
         @media (min-width: 850px) {
             body { padding: 40px 20px; }
             .resume-card {
@@ -165,42 +160,32 @@
         }
 
         @media print {
-    /* Versteckt Bedienelemente */
-    .controls, .social-btn { display: none !important; }
-
-    /* Entfernt Hintergründe und Schatten für sauberen Druck */
-    body {
-        background: white !important;
-        padding: 0 !important;
-        color: black !important;
-    }
-
-    .resume-card {
-        display: grid !important;
-        grid-template-columns: 280px 1fr !important;
-        width: 100% !important;
-        max-width: none !important;
-        margin: 0 !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
-    }
-
-    /* Verhindert, dass Zeilen in der Mitte durchgeschnitten werden */
-    .timeline-item, .cert-card, .section {
-        page-break-inside: avoid;
-        break-inside: avoid;
-    }
-
-    /* Stellt sicher, dass Hintergrundfarben (wie die Sidebar) gedruckt werden */
-    .sidebar {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        min-height: 100vh;
-    }
-
-    /* Links im Druck nicht unterstreichen oder blau färben */
-    a { text-decoration: none !important; color: inherit !important; }
-}
+            .controls, .social-btn { display: none !important; }
+            body {
+                background: white !important;
+                padding: 0 !important;
+                color: black !important;
+            }
+            .resume-card {
+                display: grid !important;
+                grid-template-columns: 280px 1fr !important;
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+            .timeline-item, .cert-card, .section {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            .sidebar {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                min-height: 100vh;
+            }
+            a { text-decoration: none !important; color: inherit !important; }
+        }
     </style>
 </head>
 <body>
@@ -273,19 +258,19 @@
 
     <main class="main">
         <section class="section">
-    <h2 class="section-h2"><i class="fas fa-user-circle"></i> Profil</h2>
-    <p style="font-size: 1.05rem; margin-bottom: 15px;">
-        Seit über <strong>18 Jahren</strong> kümmere ich mich darum, dass IT-Landschaften nicht nur laufen, sondern die Arbeit wirklich erleichtern.
-    </p>
-    <p style="margin-bottom: 15px;">
-        Mein Schwerpunkt liegt auf der Betreuung und Architektur von 
-        <strong>SharePoint, Nextcloud, ELAK-Systemen</strong> und der Begleitung 
-        <strong>hauseigener Softwareentwicklungen</strong>.
-    </p>
-    <div style="background: var(--bg); padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent);">
-        Mir ist wichtig, dass Technik kein Selbstzweck ist, sondern bei den Anwendern ankommt. Deshalb kombiniere ich solide Infrastruktur mit modernen Tools, um den Arbeitsalltag spürbar zu unterstützen.
-    </div>
-</section>
+            <h2 class="section-h2"><i class="fas fa-user-circle"></i> Profil</h2>
+            <p style="font-size: 1.05rem; margin-bottom: 15px;">
+                Seit über <strong>20 Jahren</strong> kümmere ich mich darum, dass IT-Landschaften nicht nur laufen, sondern die Arbeit wirklich erleichtern.
+            </p>
+            <p style="margin-bottom: 15px;">
+                Mein Schwerpunkt liegt auf der Betreuung und Architektur von 
+                <strong>SharePoint, Nextcloud, ELAK-Systemen</strong> und der Begleitung 
+                <strong>hauseigener Softwareentwicklungen</strong>.
+            </p>
+            <div style="background: var(--bg); padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent);">
+                Mir ist wichtig, dass Technik kein Selbstzweck ist, sondern bei den Anwendern ankommt. Deshalb kombiniere ich solide Infrastruktur mit modernen Tools, um den Arbeitsalltag spürbar zu unterstützen.
+            </div>
+        </section>
 
         <section class="section">
             <h2 class="section-h2"><i class="fas fa-history"></i> Berufsweg</h2>
@@ -293,7 +278,7 @@
             <div class="timeline-item">
                 <span class="job-title">IT-Projektmanager / Applikationsmanager</span>
                 <span class="company">IT-Kommunal GmbH</span>
-                <span class="date">Februar 2013 – Heute</span>
+                <span class="date">Februar 2013 – März 2026</span>
                 <ul class="desc-list">
                     <li>Zentrale Schnittstelle für Rechenzentrums-Betreiber und Kundenverwaltung</li>
                     <li>Betreuung von <strong>Office 365, Nextcloud, DMS und ELAK-Systemen</strong> für 1000+ Nutzer</li>
@@ -308,9 +293,9 @@
             </div>
 
             <div class="timeline-item">
-                <span class="job-title">IT-Projektmanager / Infrastruktur</span>
-                <span class="company">Speditionsholding GmbH / ÖBB Rail Cargo</span>
-                <span class="date">Nov. 2010 – Feb. 2013</span>
+                <span class="job-title">Angestellter (IT-Projektmanager / Infrastruktur)</span>
+                <span class="company">Rail Cargo Logistics - Austria GmbH (vormals Express-Interfracht)</span>
+                <span class="date">Januar 2009 – März 2013</span>
                 <ul class="desc-list">
                     <li>Betreuung der physischen und virtuellen IT-Infrastruktur.</li>
                     <li>Wartung und Administration von <strong>SharePoint 2007</strong>.</li>
@@ -318,12 +303,24 @@
             </div>
 
             <div class="timeline-item">
-                <span class="job-title">IT-Administrator</span>
-                <span class="company">Schier Otten & Co. GesmbH</span>
-                <span class="date">Juli 2007 – Nov. 2010</span>
+                <span class="job-title">Angestellter (IT-Administrator)</span>
+                <span class="company">Schier, Otten & Co. Gesellschaft m.b.H.</span>
+                <span class="date">Juli 2007 – Dezember 2008</span>
                 <ul class="desc-list">
                     <li>Allgemeine Systemadministration und 2nd-Level Support.</li>
                 </ul>
+            </div>
+
+            <div class="timeline-item">
+                <span class="job-title">Zivildienst</span>
+                <span class="company">Österr. Rotes Kreuz Landesverband für NÖ</span>
+                <span class="date">Juli 2006 – März 2007</span>
+            </div>
+
+            <div class="timeline-item">
+                <span class="job-title">Besuch einer mittleren Schule</span>
+                <span class="company">Pensionsversicherungsanstalt (Meldestelle)</span>
+                <span class="date">Januar 2006 – August 2006</span>
             </div>
         </section>
 
