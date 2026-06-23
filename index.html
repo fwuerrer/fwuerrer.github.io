@@ -3,188 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Florian Würrer | IT-Administration & Projektmanagement</title>
+    <title>Florian Würrer | IT-Projektmanager · KI & Digitalisierung</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1e293b;
-            --accent: #3498db;
-            --accent-glow: rgba(52, 152, 219, 0.2);
-            --text-main: #2d3436;
-            --text-light: #636e72;
-            --bg: #f0f4f8;
+            --primary: #0f172a;
+            --accent: #6366f1;
+            --accent-secondary: #8b5cf6;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --bg: #f8fafc;
             --card-bg: #ffffff;
-            --sidebar-bg: #1e293b;
-            --transition: all 0.3s ease;
-        }
-
-        body.dark-mode {
-            --bg: #020617;
-            --card-bg: #0f172a;
-            --text-main: #e2e8f0;
-            --text-light: #94a3b8;
-            --sidebar-bg: #111827;
+            --sidebar-bg: #0f172a;
+            --border-subtle: rgba(0,0,0,0.06);
+            --tag-bg: #eef2ff;
+            --tag-color: #4338ca;
+            --transition: all 0.25s ease;
+            --gradient-accent: linear-gradient(135deg, #6366f1, #8b5cf6);
+            --shadow-card: 0 4px 24px rgba(0,0,0,0.06);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text-main);
-            line-height: 1.5;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         .controls {
-            position: sticky;
-            top: 0;
-            width: 100%;
-            background: var(--card-bg);
-            padding: 10px;
+            position: fixed;
+            top: 16px;
+            right: 16px;
             display: flex;
-            justify-content: center;
-            gap: 12px;
+            gap: 8px;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
 
         .control-btn {
-            background: var(--bg);
+            background: var(--card-bg);
             color: var(--text-main);
-            border: 1px solid rgba(0,0,0,0.1);
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.8rem;
+            border: 1px solid var(--border-subtle);
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 0.78rem;
             font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            backdrop-filter: blur(8px);
         }
+        .control-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
 
         .resume-card {
             max-width: 1100px;
             margin: 0 auto;
             background: var(--card-bg);
-            display: block;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
         }
 
         .sidebar {
             background: var(--sidebar-bg);
-            color: white;
-            padding: 40px 25px;
-            text-align: center;
+            color: #e2e8f0;
+            padding: 48px 28px;
         }
 
         .profile-img {
-            width: 150px; height: 150px;
-            margin: 0 auto 20px;
+            width: 140px; height: 140px;
+            margin: 0 auto 24px;
             border-radius: 50%;
-            border: 4px solid var(--accent);
-            padding: 4px;
-            background: var(--sidebar-bg);
+            border: 3px solid transparent;
+            background: var(--gradient-accent) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            padding: 3px;
             overflow: hidden;
         }
-        .profile-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; background: white; }
+        .profile-img-inner {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--sidebar-bg);
+        }
+        .profile-img-inner img { width: 100%; height: 100%; object-fit: cover; }
 
-        .name-tag h1 { font-size: 1.6rem; margin-bottom: 5px; }
-        .name-tag p { color: var(--accent); font-weight: 500; font-size: 0.9rem; }
-        .motto { font-style: italic; font-size: 0.75rem; color: #94a3b8; margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px; }
+        .name-tag { text-align: center; margin-bottom: 24px; }
+        .name-tag h1 { font-size: 1.65rem; font-weight: 700; margin-bottom: 6px; color: #ffffff; letter-spacing: -0.02em; }
+        .name-tag .role { 
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            font-size: 0.88rem;
+        }
+        .name-tag .motto {
+            font-style: italic; font-size: 0.75rem; color: #94a3b8;
+            margin-top: 12px; border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 12px; letter-spacing: 0.01em;
+        }
 
-        .info-list { text-align: left; margin: 25px 0; font-size: 0.85rem; }
-        .info-item { display: flex; align-items: center; margin-bottom: 12px; color: #cbd5e1; }
-        .info-item i { width: 28px; color: var(--accent); font-size: 1rem; }
-        .info-item a { color: inherit; text-decoration: none; word-break: break-all; }
+        .info-list { font-size: 0.82rem; margin: 24px 0; }
+        .info-item {
+            display: flex; align-items: center; margin-bottom: 11px; color: #cbd5e1;
+            gap: 10px;
+        }
+        .info-item i { width: 18px; color: #818cf8; font-size: 0.9rem; text-align: center; }
+        .info-item a, .info-item span { color: inherit; text-decoration: none; word-break: break-all; }
 
         .sidebar-heading {
-            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px;
-            margin: 25px 0 12px; color: var(--accent); font-weight: 700;
-            border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px; text-align: left;
+            font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1.8px;
+            margin: 28px 0 14px; color: #818cf8; font-weight: 700;
         }
 
-        .skill-item { margin-bottom: 15px; text-align: left; }
-        .skill-info { display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 5px; }
-        .skill-track { background: rgba(255,255,255,0.1); height: 5px; border-radius: 10px; }
-        .skill-fill { background: var(--accent); height: 100%; border-radius: 10px; }
+        .skill-item { margin-bottom: 14px; }
+        .skill-info { display: flex; justify-content: space-between; font-size: 0.73rem; margin-bottom: 5px; color: #cbd5e1; }
+        .skill-track { background: rgba(255,255,255,0.08); height: 6px; border-radius: 10px; overflow: hidden; }
+        .skill-fill { 
+            background: var(--gradient-accent); height: 100%; border-radius: 10px;
+            transition: width 1s ease;
+        }
 
-        .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start; }
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 7px; }
         .tag {
-            background: rgba(255,255,255,0.1); padding: 6px 12px;
-            border-radius: 6px; font-size: 0.75rem; color: white;
-            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(99, 102, 241, 0.15);
+            color: #c7d2fe;
+            padding: 5px 11px; border-radius: 6px; font-size: 0.72rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
         }
+        .tag.accent { background: rgba(139, 92, 246, 0.2); border-color: rgba(139, 92, 246, 0.3); }
+        .tag i { margin-right: 4px; font-size: 0.7rem; }
 
         .social-btn {
-            background: #0077b5; color: white; text-decoration: none;
-            padding: 12px; border-radius: 10px; font-weight: 600;
-            display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 30px;
+            background: var(--gradient-accent);
+            color: white; text-decoration: none;
+            padding: 12px 16px; border-radius: 10px; font-weight: 600;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            margin-top: 28px; font-size: 0.85rem;
+            transition: var(--transition);
+        }
+        .social-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(99,102,241,0.35); }
+
+        .main { padding: 48px 36px; }
+
+        .section { margin-bottom: 40px; }
+        .section-h2 {
+            font-size: 1.15rem; font-weight: 700; margin-bottom: 20px;
+            color: var(--text-main); display: flex; align-items: center; gap: 10px;
+            letter-spacing: -0.01em;
+        }
+        .section-h2 .icon-circle {
+            width: 34px; height: 34px;
+            background: var(--accent-glow);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: #6366f1;
+            font-size: 0.85rem;
         }
 
-        .main { padding: 40px 20px; }
-        .section { margin-bottom: 40px; }
-        .section-h2 { font-size: 1.25rem; margin-bottom: 20px; color: var(--accent); display: flex; align-items: center; gap: 12px; }
+        .timeline-item {
+            padding-left: 22px; border-left: 2px solid #e2e8f0;
+            position: relative; margin-bottom: 28px;
+            transition: var(--transition);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute; left: -6px; top: 4px;
+            width: 10px; height: 10px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+        }
+        .timeline-item:hover { border-left-color: #818cf8; }
 
-        .timeline-item { padding-left: 20px; border-left: 2px solid var(--accent); position: relative; margin-bottom: 30px; }
-        .job-title { font-weight: 700; font-size: 1.1rem; }
-        .company { color: var(--accent); font-weight: 600; font-size: 0.9rem; display: block; }
-        .date { font-size: 0.8rem; color: var(--text-light); margin-bottom: 10px; display: block; }
+        .job-title { font-weight: 700; font-size: 1.05rem; color: var(--text-main); }
+        .company { color: #6366f1; font-weight: 600; font-size: 0.88rem; display: block; margin: 2px 0; }
+        .date { font-size: 0.78rem; color: var(--text-light); margin-bottom: 10px; display: block; }
 
-        .desc-list { list-style: none; font-size: 0.9rem; }
-        .desc-list li { margin-bottom: 6px; padding-left: 15px; position: relative; }
-        .desc-list li::before { content: "•"; color: var(--accent); position: absolute; left: 0; }
+        .desc-list { list-style: none; font-size: 0.86rem; }
+        .desc-list li { margin-bottom: 6px; padding-left: 16px; position: relative; color: #475569; }
+        .desc-list li::before { content: "▸"; color: #818cf8; position: absolute; left: 0; font-size: 0.7rem; top: 2px; }
 
-        .partner-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px; }
-        .partner-logo { text-align: center; font-size: 0.7rem; opacity: 0.7; }
-        .partner-logo i { font-size: 1.8rem; display: block; margin-bottom: 5px; color: var(--text-main); }
+        .highlight-box {
+            background: #eef2ff;
+            border: 1px solid #c7d2fe;
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            color: #3730a3;
+            line-height: 1.6;
+        }
 
-        .tech-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
-        .tech-badge { background: var(--bg); padding: 8px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(0,0,0,0.05); }
+        .partner-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 12px; }
+        .partner-logo {
+            text-align: center; font-size: 0.7rem; color: var(--text-light);
+            background: var(--bg); padding: 12px 8px; border-radius: 10px;
+            transition: var(--transition);
+        }
+        .partner-logo:hover { background: #eef2ff; transform: translateY(-2px); }
+        .partner-logo i { font-size: 1.4rem; display: block; margin-bottom: 5px; color: #6366f1; }
 
-        .cert-card { background: var(--bg); padding: 15px; border-radius: 12px; margin-bottom: 10px; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; }
-        .btn-link { color: var(--accent); text-decoration: none; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; }
+        .tech-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tech-badge {
+            background: var(--tag-bg); color: var(--tag-color);
+            padding: 7px 15px; border-radius: 50px; font-size: 0.78rem;
+            font-weight: 600; transition: var(--transition);
+            border: 1px solid rgba(99,102,241,0.1);
+        }
+        .tech-badge:hover { background: #ddd6fe; transform: translateY(-1px); }
+
+        .cert-card {
+            background: var(--bg); padding: 14px 18px; border-radius: 10px;
+            margin-bottom: 8px; font-size: 0.85rem;
+            display: flex; justify-content: space-between; align-items: center;
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition);
+        }
+        .cert-card:hover { border-color: #c7d2fe; }
+        .cert-card .badge-ki {
+            background: #eef2ff; color: #4338ca; font-size: 0.65rem;
+            font-weight: 700; padding: 3px 8px; border-radius: 4px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .btn-link { color: #6366f1; text-decoration: none; font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.3px; }
 
         @media (min-width: 850px) {
-            body { padding: 40px 20px; }
+            body { padding: 20px; }
             .resume-card {
                 display: grid;
-                grid-template-columns: 320px 1fr;
-                border-radius: 20px;
-                overflow: hidden;
-                box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+                grid-template-columns: 300px 1fr;
             }
-            .controls { position: absolute; top: 20px; right: 20px; width: auto; background: transparent; border: none; }
-            .sidebar { padding: 50px 30px; text-align: left; }
-            .main { padding: 60px; }
-            .partner-grid { grid-template-columns: repeat(4, 1fr); }
+            .sidebar { padding: 52px 30px; }
+            .main { padding: 56px 44px; }
+        }
+
+        @media (max-width: 849px) {
+            .controls { top: 8px; right: 8px; }
+            .control-btn { padding: 6px 10px; font-size: 0.7rem; }
+            .main { padding: 32px 20px; }
+            .sidebar { padding: 36px 20px; }
+            .partner-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media print {
             .controls, .social-btn { display: none !important; }
-            body {
-                background: white !important;
-                padding: 0 !important;
-                color: black !important;
-            }
+            body { background: white !important; padding: 0 !important; color: black !important; }
             .resume-card {
                 display: grid !important;
-                grid-template-columns: 280px 1fr !important;
-                width: 100% !important;
-                max-width: none !important;
-                margin: 0 !important;
-                box-shadow: none !important;
+                grid-template-columns: 260px 1fr !important;
+                width: 100% !important; max-width: none !important;
+                margin: 0 !important; box-shadow: none !important;
                 border-radius: 0 !important;
             }
-            .timeline-item, .cert-card, .section {
-                page-break-inside: avoid;
-                break-inside: avoid;
-            }
-            .sidebar {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                min-height: 100vh;
-            }
+            .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; min-height: 100vh; }
+            .timeline-item, .cert-card, .section { page-break-inside: avoid; break-inside: avoid; }
             a { text-decoration: none !important; color: inherit !important; }
+            .tag { border: 0.5px solid #ccc !important; }
         }
     </style>
 </head>
@@ -192,63 +276,69 @@
 
 <div class="resume-card">
     <div class="controls">
-        <button class="control-btn" onclick="document.body.classList.toggle('dark-mode')"><i class="fas fa-moon"></i>Dark/Light</button>
-        <button class="control-btn" onclick="window.print()"><i class="fas fa-print"></i>Drucken</button>
+        <button class="control-btn" onclick="window.print()"><i class="fas fa-print"></i>PDF</button>
     </div>
 
     <aside class="sidebar">
         <div class="profile-img">
-            <img src="https://icagilestore.blob.core.windows.net/production-useruploadedfiles/pp_7659c5cf-25c5-4692-8287-73ffb81cadb2.jpg" alt="Florian Würrer">
+            <div class="profile-img-inner">
+                <img src="https://icagilestore.blob.core.windows.net/production-useruploadedfiles/pp_7659c5cf-25c5-4692-8287-73ffb81cadb2.jpg" alt="Florian Würrer">
+            </div>
         </div>
 
         <div class="name-tag">
             <h1>Florian Würrer</h1>
-            <p>IT-Administration & Projektmanagement</p>
-            <div class="motto">"Technik verstehen, Menschen unterstützen."</div>
+            <p class="role">IT-Projektmanager · KI &amp; Digitalisierung</p>
+            <div class="motto">„Innovation im öffentlichen Sektor — mit Technik, die wirkt."</div>
         </div>
 
         <div class="info-list">
-            <div class="info-item"><i class="fas fa-phone"></i><a href="tel:+43676848424242">+43 676 848424242</a></div>
+            <div class="info-item"><i class="fas fa-phone"></i><a href="tel:+436****4242">+43 676 848424242</a></div>
             <div class="info-item"><i class="fas fa-envelope"></i><a href="mailto:f.wuerrer@gmail.com">f.wuerrer@gmail.com</a></div>
-            <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Hauptstr. 87, 2224 Erdpress</span></div>
+            <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>2224 Erdpress, NÖ</span></div>
         </div>
 
-        <h3 class="sidebar-heading">Kern-Fokus</h3>
+        <h3 class="sidebar-heading">Kernkompetenzen</h3>
         <div class="skill-item">
-            <div class="skill-info"><span>System-Infrastruktur</span><span>85%</span></div>
+            <div class="skill-info"><span>IT-Projektmanagement</span><span>13+ Jahre</span></div>
+            <div class="skill-track"><div class="skill-fill" style="width: 95%;"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>Schnittstellen &amp; APIs</span><span>REST, XML, JSON</span></div>
             <div class="skill-track"><div class="skill-fill" style="width: 85%;"></div></div>
         </div>
         <div class="skill-item">
-            <div class="skill-info"><span>Applikations-Management</span><span>100%</span></div>
-            <div class="skill-track"><div class="skill-fill" style="width: 100%;"></div></div>
+            <div class="skill-info"><span>KI &amp; Automatisierung</span><span>Praxis + Zert.</span></div>
+            <div class="skill-track"><div class="skill-fill" style="width: 80%;"></div></div>
         </div>
         <div class="skill-item">
-            <div class="skill-info"><span>Schnittstellen</span><span>50%</span></div>
-            <div class="skill-track"><div class="skill-fill" style="width: 50%;"></div></div>
+            <div class="skill-info"><span>Stakeholder-Management</span><span>Öffentl. Sektor</span></div>
+            <div class="skill-track"><div class="skill-fill" style="width: 90%;"></div></div>
         </div>
         <div class="skill-item">
-            <div class="skill-info"><span>Kundenbetreuung</span><span>70%</span></div>
-            <div class="skill-track"><div class="skill-fill" style="width: 70%;"></div></div>
+            <div class="skill-info"><span>Schulung &amp; Dokumentation</span><span>5000+ Anwender</span></div>
+            <div class="skill-track"><div class="skill-fill" style="width: 88%;"></div></div>
         </div>
 
-        <h3 class="sidebar-heading">Expertise</h3>
+        <h3 class="sidebar-heading">Technologien</h3>
         <div class="tag-cloud">
-            <span class="tag">Windows Server</span>
-            <span class="tag">Office 365</span>
-            <span class="tag">Nextcloud</span>
-            <span class="tag">DMS / ELAK</span>
-            <span class="tag">IAM</span>
-            <span class="tag">SharePoint 2007-2019</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">XML / JSON</span>
+            <span class="tag">KI / ML</span>
             <span class="tag">SharePoint Online</span>
-            <span class="tag">E-Learning</span>
-            <span class="tag">Zertifikate</span>
+            <span class="tag">DMS / ELAK</span>
+            <span class="tag">Microsoft 365</span>
+            <span class="tag">Nextcloud</span>
+            <span class="tag">DSGVO</span>
+            <span class="tag">Windows Server</span>
+            <span class="tag">IAM / Security</span>
         </div>
 
         <h3 class="sidebar-heading">Arbeitsweise</h3>
         <div class="tag-cloud">
-            <span class="tag"><i class="fas fa-brain"></i> Problemlöser</span>
-            <span class="tag"><i class="fas fa-comments"></i> Kommunikativ</span>
-            <span class="tag"><i class="fas fa-robot"></i> KI-gestützt</span>
+            <span class="tag accent"><i class="fas fa-robot"></i>KI-gestützt</span>
+            <span class="tag accent"><i class="fas fa-puzzle-piece"></i>Lösungsorientiert</span>
+            <span class="tag accent"><i class="fas fa-users"></i>Kommunikativ</span>
         </div>
 
         <a href="https://www.linkedin.com/in/florian-w%C3%BCrrer-80415a35b/" target="_blank" class="social-btn">
@@ -258,37 +348,35 @@
 
     <main class="main">
         <section class="section">
-            <h2 class="section-h2"><i class="fas fa-user-circle"></i> Profil</h2>
-            <p style="font-size: 1.05rem; margin-bottom: 15px;">
-                Seit über <strong>19 Jahren</strong> kümmere ich mich darum, dass IT-Landschaften nicht nur laufen, sondern die Arbeit wirklich erleichtern.
+            <h2 class="section-h2"><span class="icon-circle"><i class="fas fa-bullseye"></i></span> Profil</h2>
+            <p style="font-size: 1rem; margin-bottom: 16px; line-height: 1.7;">
+                Erfahrener <strong>IT-Projektmanager mit über 19 Jahren Praxis</strong> — davon 13 Jahre im öffentlichen Sektor.
+                Meine Stärke liegt darin, komplexe IT-Projekte von der Konzeption bis zum Roll-out zu führen und <strong>Fachbereiche, Entwicklerteams und externe Stakeholder</strong> auf eine Linie zu bringen.
             </p>
-            <p style="margin-bottom: 15px;">
-                Mein Schwerpunkt liegt auf der Betreuung und Architektur von 
-                <strong>SharePoint, Nextcloud, ELAK-Systemen</strong> und der Begleitung 
-                <strong>hauseigener Softwareentwicklungen</strong>.
-            </p>
-            <div style="background: var(--bg); padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent);">
-                Mir ist wichtig, dass Technik kein Selbstzweck ist, sondern bei den Anwendern ankommt. Deshalb kombiniere ich solide Infrastruktur mit modernen Tools, um den Arbeitsalltag spürbar zu unterstützen.
+            <div class="highlight-box">
+                <strong>Mein Antrieb:</strong> Den öffentlichen Sektor mit moderner Technologie zukunftsfähig machen — 
+                durch <strong>KI-gestützte Automatisierung</strong>, robuste <strong>Schnittstellen-Architekturen</strong> 
+                und eine klare Kommunikation auf Augenhöhe. Technik ist für mich kein Selbstzweck, sondern das Werkzeug, 
+                mit dem Verwaltungsprozesse effizienter, transparenter und bürgernäher werden.
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section-h2"><i class="fas fa-history"></i> Berufsweg</h2>
+            <h2 class="section-h2"><span class="icon-circle"><i class="fas fa-briefcase"></i></span> Berufserfahrung</h2>
 
             <div class="timeline-item">
-                <span class="job-title">IT-Projektmanager / Applikationsmanager</span>
-                <span class="company">IT-Kommunal GmbH</span>
+                <span class="job-title">IT-Projektmanager &amp; Applikationsmanager</span>
+                <span class="company">IT-Kommunal GmbH — Digitalisierung für 130+ Gemeinden</span>
                 <span class="date">Februar 2013 – März 2026</span>
                 <ul class="desc-list">
-                    <li>Zentrale Schnittstelle für Rechenzentrums-Betreiber und Kundenverwaltung</li>
-                    <li>Betreuung von <strong>Office 365, Nextcloud, DMS und ELAK-Systemen</strong> für 1000+ Nutzer</li>
-                    <li>Administration von <strong>SharePoint Online</strong> und Windows Servern</li>
-                    <li>Begleitung <strong>hauseigenen Softwareentwicklungen</strong> von der Anforderungsanalyse bis zum Roll-out</li>
-                    <li><strong>Zertifikatsmanagement</strong> für Kunden und interne Systeme</li>
-                    <li>Betreuung einer <strong>E-Learning Umgebung</strong> mit 5000+ Nutzern</li>
-                    <li>Einführung <strong>neuer Softwarelösungen</strong> inklusive Erstellung von Dokumentationen und Durchführung von Anwenderschulungen</li>
-                    <li>Gewährleistung einer hohen Systemverfügbarkeit durch <strong>proaktives Monitoring</strong> der Infrastruktur</li>
-                    <li>Analyse und Digitalisierung analoger Verwaltungsprozesse zur <strong>Steigerung der Effizienz</strong></li>
+                    <li><strong>Fachliche Leitung</strong> von IT-Projekten im öffentlichen Sektor — von der Anforderungsanalyse bis zur produktiven Einführung</li>
+                    <li><strong>Schnittstellen-Architektur:</strong> Konzeption und Umsetzung automatisierter Datenübermittlung via REST APIs, XML/JSON sowie Zertifikats-basierter Authentifizierung (A-Trust Amtssignatur)</li>
+                    <li><strong>Stakeholder-Management:</strong> Zentrale Schnittstelle zwischen Rechenzentrums-Betreibern, 130 Gemeinden und internen Entwicklerteams</li>
+                    <li>Betreuung von <strong>DMS/ELAK-Systemen, SharePoint Online und Nextcloud</strong> für 1000+ Nutzer — inkl. IAM und DSGVO-konformer Zugriffssteuerung</li>
+                    <li><strong>KI-Integration:</strong> Einführung KI-gestützter Workflows zur Prozessautomatisierung und Effizienzsteigerung in Verwaltungsabläufen</li>
+                    <li><strong>Schulung &amp; Dokumentation:</strong> Erstellung technischer Dokumentationen, Anwenderhandbücher und Durchführung von Webinaren für 5000+ Nutzer einer E-Learning-Plattform</li>
+                    <li><strong>Qualitätssicherung:</strong> Proaktives Monitoring, Fehleranalyse und kontinuierliche Optimierung der Anwendungslandschaft</li>
+                    <li><strong>Digitale Transformation:</strong> Analyse, Digitalisierung und Automatisierung analoger Verwaltungsprozesse</li>
                 </ul>
             </div>
 
@@ -297,23 +385,24 @@
                 <span class="company">Express-Interfracht Internationale Spedition GmbH</span>
                 <span class="date">Januar 2009 – März 2013</span>
                 <ul class="desc-list">
-                    <li>Betreuung der physischen und virtuellen IT-Infrastruktur.</li>
-                    <li>Wartung und Administration von <strong>SharePoint 2007</strong>.</li>
+                    <li>Betreuung der physischen und virtuellen IT-Infrastruktur (VMware, Windows Server)</li>
+                    <li>Administration und Weiterentwicklung von SharePoint 2007</li>
+                    <li>2nd/3rd-Level Support und Anwenderbetreuung</li>
                 </ul>
             </div>
 
             <div class="timeline-item">
                 <span class="job-title">IT-Administrator</span>
-                <span class="company">Schier, Otten & Co. Gesellschaft m.b.H.</span>
+                <span class="company">Schier, Otten &amp; Co. Gesellschaft m.b.H.</span>
                 <span class="date">Juli 2007 – Dezember 2008</span>
                 <ul class="desc-list">
-                    <li>Allgemeine Systemadministration und 2nd-Level Support.</li>
+                    <li>Systemadministration, Netzwerkbetreuung und 2nd-Level Support</li>
                 </ul>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section-h2"><i class="fas fa-handshake"></i> Partner & Zusammenarbeit</h2>
+            <h2 class="section-h2"><span class="icon-circle"><i class="fas fa-handshake"></i></span> Partner &amp; Kooperationen</h2>
             <div class="partner-grid">
                 <div class="partner-logo"><i class="fab fa-microsoft"></i><span>Microsoft</span></div>
                 <div class="partner-logo"><i class="fab fa-aws"></i><span>AWS</span></div>
@@ -327,27 +416,38 @@
         </section>
 
         <section class="section">
-            <h2 class="section-h2"><i class="fas fa-microchip"></i> Technologie Stack</h2>
+            <h2 class="section-h2"><span class="icon-circle"><i class="fas fa-microchip"></i></span> Technologie-Stack</h2>
             <div class="tech-badges">
-                <div class="tech-badge">Windows Server</div>
+                <div class="tech-badge">REST APIs</div>
+                <div class="tech-badge">XML / JSON / CSV</div>
+                <div class="tech-badge">KI &amp; Machine Learning</div>
                 <div class="tech-badge">SharePoint Online</div>
                 <div class="tech-badge">DMS / ELAK</div>
-                <div class="tech-badge">Nextcloud</div>
                 <div class="tech-badge">Microsoft 365</div>
-                <div class="tech-badge">IAM / Security</div>
-                <div class="tech-badge">VMware / Hyper-V</div>
-                <div class="tech-badge">Proxmox</div>
+                <div class="tech-badge">Nextcloud</div>
+                <div class="tech-badge">Windows Server</div>
+                <div class="tech-badge">IAM / DSGVO</div>
+                <div class="tech-badge">VMware / Proxmox</div>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section-h2"><i class="fas fa-certificate"></i> Qualifikationen</h2>
+            <h2 class="section-h2"><span class="icon-circle"><i class="fas fa-certificate"></i></span> Zertifizierungen</h2>
             <div class="cert-card">
-                <span><strong>Foundations of AI (ICAgile)</strong> | 2025</span>
-                <a href="https://www.icagile.com/credentials/7659c5cf-25c5-4692-8287-73ffb81cadb2" target="_blank" class="btn-link">Zertifikat</a>
+                <span><strong>Foundations of AI</strong> — ICAgile <span class="badge-ki">KI</span></span>
+                <span style="display:flex; align-items:center; gap:12px;">
+                    <span style="font-size:0.78rem; color:var(--text-light);">2025</span>
+                    <a href="https://www.icagile.com/credentials/7659c5cf-25c5-4692-8287-73ffb81cadb2" target="_blank" class="btn-link">Zertifikat →</a>
+                </span>
             </div>
-            <div class="cert-card"><span><strong>Architecting on AWS</strong> | 2021</span></div>
-            <div class="cert-card"><span><strong>SharePoint 2016 Administration</strong> | 2019</span></div>
+            <div class="cert-card">
+                <span><strong>Architecting on AWS</strong></span>
+                <span style="font-size:0.78rem; color:var(--text-light);">2021</span>
+            </div>
+            <div class="cert-card">
+                <span><strong>SharePoint 2016 Administration</strong></span>
+                <span style="font-size:0.78rem; color:var(--text-light);">2019</span>
+            </div>
         </section>
     </main>
 </div>
